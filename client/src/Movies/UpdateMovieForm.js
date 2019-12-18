@@ -20,3 +20,20 @@ const initialMovie = {
           [e.target.name]: value
       })
   }
+
+  useEffect(()=> {
+      axios.get(`http://localhost:5000/api/movies`)
+  })
+
+  const handleSubmit = e => {
+      e.preventDefault();
+      console.log(movie)
+      axios.put(`http://localhost:5000/api/movies/${movie.id}`, movie)
+      .then (res => {
+          //props. (res.data)
+          props.history.push('/')
+      })
+      .catch(err => console.log(err))
+  }
+
+  
