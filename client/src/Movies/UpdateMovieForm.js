@@ -19,7 +19,7 @@ const initialMovie = {
           ...movie,
           [e.target.name]: value
       })
-  }
+  
 
   useEffect(()=> {
       axios
@@ -40,4 +40,37 @@ const initialMovie = {
       .catch(err => console.log(err))
    }
 
+   return(
+       <div>
+           <h2>Update Movie</h2>
+           <form onSubmit={handleSubmit}>
+            <input
+               type="text"
+               name= "title"
+               placeholder="title"
+               onChange={changeHandler}
+               value={movie.title}
+            />
+             <input
+               type="text"
+               name= "director"
+               placeholder="director"
+               onChange={changeHandler}
+               value={movie.director}
+            />
+            <input
+               type="number"
+               name= "metascore"
+               placeholder="metascore"
+               onChange={changeHandler}
+               value={movie.metascore}
+            />
+            
+            <button className='btnupdate'>Update Movie</button>
 
+           </form>
+       </div>
+   )
+};
+
+export default UpdateMovieForm;
