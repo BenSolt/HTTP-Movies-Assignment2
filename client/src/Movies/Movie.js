@@ -36,19 +36,19 @@ export default class Movie extends React.Component {
       return <div>Loading movie information...</div>;
     }
 
-    const clickRoute = e => {
+    const EditMovie = e => {
       e.preventDefault();
-      props.history.push(`/update-movie/${this.state.movie.id}`);
+      this.props.history.push(`/update-movie/${this.state.movie.id}`);
     };
   
     const deleteMovie = e => {
       e.preventDefault();
       axios
-        .delete(`http://localhost:5000/api/movies/${movie.id}`)
+        .delete(`http://localhost:5000/api/movies/${this.state.movie.id}`)
         .then(res => {
           //console.log(res))
-        props.updateMovies(res.data);
-        props.history.push("/movies");
+        // this.props.updateMovies(res.data);
+        this.props.history.push("/");
       })
         .catch(err => console.log(err));
     };
@@ -60,9 +60,9 @@ export default class Movie extends React.Component {
         <div className="save-button" onClick={this.saveMovie}>
           Save
         </div>
-        <button onClick={clickRoute}>a</button>
+        <button onClick={EditMovie}>Edit Movie</button>
 
-        <button onClick={deleteMovie}>a</button>
+        <button onClick={deleteMovie}>Delete Movie</button>
       </div>
     );
   }

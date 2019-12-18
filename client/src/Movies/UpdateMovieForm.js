@@ -10,16 +10,16 @@ const initialMovie = {
   }
 
   const UpdateMovieForm = props => {
-      const movie, setMovie = useState(initialMovie);
+      const [movie, setMovie] = useState(initialMovie);
       const changeHandler = e => {
           e.persist()
           let value = e.target.value;
-      }
+      
       setMovie({
           ...movie,
           [e.target.name]: value
       })
-  
+    }
 
   useEffect(()=> {
       axios
@@ -71,6 +71,7 @@ const initialMovie = {
            </form>
        </div>
    )
-};
 
+
+}
 export default UpdateMovieForm;
