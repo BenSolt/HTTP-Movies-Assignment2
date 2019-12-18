@@ -21,7 +21,11 @@ export default class SavedList extends Component {
           );
         })}
         <div className="home-button">
-          <Link to="/">Home</Link>
+          <Link className='link' to="/">Home</Link>
+        </div>
+{/* STRETCH ADD MOVIE */}
+        <div className="home-button">
+        <Link className='link' to="/add-movie">Add Movie</Link>
         </div>
       </div>
     );

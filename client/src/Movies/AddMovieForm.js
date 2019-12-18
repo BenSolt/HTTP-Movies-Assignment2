@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const initialMovie = {
-    // id: Date.now(),
+    id: Date.now(),
     title: '',
     director: '',
     metascore: '',
-    // stars: [],
+    stars: [],
   }
 
-  const UpdateMovieForm = props => {
+  const AddMovieForm = props => {
       const [movie, setMovie] = useState(initialMovie);
-      const changeHandler = e => {
+      const handleChange = e => {
           e.persist()
           let value = e.target.value;
       
@@ -21,18 +21,18 @@ const initialMovie = {
       })
     }
 
-  useEffect(()=> {
-      axios
-      .get(`http://localhost:5000/api/movies`)
-      .then(res => setMovie(res.data))
-      .catch(err => console.log(err.repsponse))
-      console.log(props.match.params.id)
-  }, [props.match.params.id])
+//   useEffect(()=> {
+//       axios
+//       .get(`http://localhost:5000/api/movies`)
+//       .then(res => setMovie(res.data))
+//       .catch(err => console.log(err.repsponse))
+//       console.log(props.match.params.id)
+//   }, [props.match.params.id])
 
-  const handleSubmit = e => {
+  const addMovie = e => {
       e.preventDefault();
       console.log(movie)
-      axios.put(`http://localhost:5000/api/movies/${movie.id}`, movie)
+      axios.post(`http://localhost:5000/api/movies`, movie)
       .then (res => {
           //props. (res.data)
           props.history.push('/')
@@ -43,22 +43,22 @@ const initialMovie = {
    return(
        <div className='centerform'>
            <div className='formholder'>
-           <h2>Update Movie</h2>
-           <form  className='form' onSubmit={handleSubmit}>
+           <h2>Add Movie</h2>
+           <form className='form' onSubmit={addMovie}>
             <input
             className='input'
-            type="text"
-            name= "title"
-            placeholder="title"
-            onChange={changeHandler}
-            value={movie.title}
+               type="text"
+               name= "title"
+               placeholder="title"
+               onChange={handleChange}
+               value={movie.title}
             />
              <input
             className='input'
             type="text"
             name= "director"
             placeholder="director"
-            onChange={changeHandler}
+            onChange={handleChange}
             value={movie.director}
             />
             <input
@@ -66,11 +66,11 @@ const initialMovie = {
             type="number"
             name= "metascore"
             placeholder="metascore"
-            onChange={changeHandler}
+            onChange={handleChange}
             value={movie.metascore}
             />
             
-            <button className='btn'>Update Movie</button>
+            <button className="btn">Add Movie</button>
 
            </form>
            </div>
@@ -79,4 +79,4 @@ const initialMovie = {
 
 
 }
-export default UpdateMovieForm;
+export default AddMovieForm;
