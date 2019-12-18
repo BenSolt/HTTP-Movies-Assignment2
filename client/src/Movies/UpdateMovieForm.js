@@ -22,8 +22,12 @@ const initialMovie = {
   }
 
   useEffect(()=> {
-      axios.get(`http://localhost:5000/api/movies`)
-  })
+      axios
+      .get(`http://localhost:5000/api/movies`)
+      .then(res => setMovie(res.data))
+      .catch(err => console.log(err.repsponse))
+      console.log(props.match.params.id)
+  }, [props.match.params.id])
 
   const handleSubmit = e => {
       e.preventDefault();
@@ -34,6 +38,6 @@ const initialMovie = {
           props.history.push('/')
       })
       .catch(err => console.log(err))
-  }
+   }
 
-  
+
