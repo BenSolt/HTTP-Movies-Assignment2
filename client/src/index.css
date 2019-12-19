@@ -1,12 +1,13 @@
 body {
-  margin: 0;
+  margin: 0 2% 0 2%;
   padding: 0;
   font-family: sans-serif;
   background-color: #f2f2f2;
 }
 
 .movie-card {
-  background-color: #fff;
+  background-image: linear-gradient(rgb(253, 236, 78), rgb(173, 116, 24));
+  /* background-color: #fff; */
   border: 0;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
@@ -22,7 +23,8 @@ body {
 }
 
 .saved-list {
-  background-color: #fff;
+  background-image: linear-gradient(rgb(253, 236, 78), rgb(207, 152, 62));
+  /* background-color: #fff; */
   border: 0;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
@@ -67,11 +69,62 @@ body {
 }
 
 .home-button {
-  padding: 5px 10px;
-  background-color: lightskyblue;
+  padding: 10px 15px;
+  background-color: rgb(67, 211, 255);
+  border: 2px solid black;
 }
+
+.home-button:hover {
+  background-color: rgb(97, 139, 255);
+  border: 2px solid black;
+}
+
+.btn{
+  padding: 8px 12px;
+  background-color: rgb(67, 211, 255);
+  border: 2px solid black;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.btn:hover{
+  background-color: rgb(97, 139, 255);
+  border: 2px solid black;
+}
+
+.link{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  }
+  
 
 .movie-warning {
   color: red;
   text-align: center;
 }
+
+.centerform{
+  display: flex;
+  justify-content: center;
+ 
+}
+.formholder{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid black;
+  padding: 5px;
+  background-image: linear-gradient(rgb(253, 236, 78), rgb(207, 152, 62));
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+.input{
+  padding: 7px;
+  margin: 7px;
+}
+

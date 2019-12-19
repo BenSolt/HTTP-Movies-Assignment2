@@ -36,12 +36,33 @@ export default class Movie extends React.Component {
       return <div>Loading movie information...</div>;
     }
 
+    const EditMovie = e => {
+      e.preventDefault();
+      this.props.history.push(`/update-movie/${this.state.movie.id}`);
+    };
+  
+    const deleteMovie = e => {
+      e.preventDefault();
+      axios
+        .delete(`http://localhost:5000/api/movies/${this.state.movie.id}`)
+        .then(res => {
+          //console.log(res))
+        // this.props.updateMovies(res.data);
+        this.props.history.push("/");
+      })
+        .catch(err => console.log(err));
+    };
+
+
     return (
       <div className="save-wrapper">
         <MovieCard movie={this.state.movie} />
         <div className="save-button" onClick={this.saveMovie}>
           Save
         </div>
+        <button className="btn"  onClick={EditMovie}>Edit Movie</button>
+
+        <button className="btn" onClick={deleteMovie}>Delete Movie</button>
       </div>
     );
   }

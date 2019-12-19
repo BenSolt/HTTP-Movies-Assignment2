@@ -4,6 +4,10 @@ import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
 import Movie from "./Movies/Movie";
 
+import UpdateMovieForm from './Movies/UpdateMovieForm';
+// STRETCH - add movie
+import AddMovieForm from './Movies/AddMovieForm';
+
 const App = () => {
   const [savedList, setSavedList] = useState([]);
 
@@ -21,6 +25,20 @@ const App = () => {
           return <Movie {...props} addToSavedList={addToSavedList} />;
         }}
       />
+      <Route
+        path="/update-movie/:id"
+        render={props => {
+          return <UpdateMovieForm {...props} />;
+        }}
+      />
+
+{/*  STRETCH ADD MOVIE*/}
+      <Route
+        path="/add-movie"
+        render={props => {
+          return <AddMovieForm {...props} />;
+        }}
+      />  
     </>
   );
 };
